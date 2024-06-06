@@ -2,13 +2,13 @@ def calculate_structure_sum(data):
     total_sum = 0
 
     for item in data:
-        if isinstance(item, int) or isinstance(item, float):
+        if isinstance(item, int) or isinstance(item, float): #проверяем на натуральные числа и числа с точкой
             total_sum += item
-        elif isinstance(item, str):
+        elif isinstance(item, str): #проверяем на строки
             total_sum += len(item)
-        elif isinstance(item, list) or isinstance(item, tuple) or isinstance(item, set):
+        elif isinstance(item, list) or isinstance(item, tuple) or isinstance(item, set): #проверяем на список, кортеж, множество
             total_sum += calculate_structure_sum(item)
-        elif isinstance(item, dict):
+        elif isinstance(item, dict): #проверяем на словарь
             total_sum += sum(len(key) for key in item.keys()) + calculate_structure_sum(item.values())
 
     return total_sum
