@@ -80,6 +80,7 @@ class Cube(Figure):
     def set_sides(self, *args):
         if len(args) == 1 and super()._Figure__is_valid_sides(*args):
             self.__side_length = args[0]
+            self._Figure__sides = [self.__side_length]  # Обновляем приватный атрибут __sides
         else:
             print('Некорректное значение сторон для куба')
 
@@ -111,3 +112,7 @@ print(len(circle1))
 
 # Проверка объёма (куба):
 print(cube1.get_volume())
+
+
+
+#Не совсем понял из-за чего выводится пустой список
